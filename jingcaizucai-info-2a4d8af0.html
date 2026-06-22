@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>简明指南 · 足彩竞猜信息页</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            background: #f4f6f9;
+            color: #1e2a3a;
+            line-height: 1.7;
+        }
+
+        /* 深色头图区域 */
+        .hero {
+            background: linear-gradient(135deg, #0b1a2e 0%, #142b44 60%, #1a3a57 100%);
+            padding: 5rem 1.5rem 4rem;
+            text-align: center;
+            color: #e9edf2;
+            border-bottom: 4px solid #f6b83d;
+        }
+
+        .hero h1 {
+            font-size: 2.7rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero .subhead {
+            font-size: 1.2rem;
+            color: #b6c9db;
+            max-width: 680px;
+            margin: 0 auto 1.5rem;
+            font-weight: 350;
+        }
+
+        .hero .badge-row {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+        }
+
+        .badge-row span {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            color: #cfddee;
+        }
+
+        /* 浅色正文卡片区域 */
+        .container {
+            max-width: 1140px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 3.5rem;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            font-weight: 500;
+            border-left: 5px solid #f6b83d;
+            padding-left: 1rem;
+            margin: 2.8rem 0 1.5rem;
+            color: #0b1a2e;
+        }
+
+        .section-title:first-of-type {
+            margin-top: 0.5rem;
+        }
+
+        .card-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.8rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .card {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 1.8rem 1.5rem;
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+            transition: transform 0.2s ease, box-shadow 0.2s;
+            border: 1px solid #e6ecf2;
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.06);
+        }
+
+        .card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 0.6rem;
+            font-weight: 500;
+            color: #0b1a2e;
+        }
+
+        .card p {
+            color: #3e4f62;
+            font-size: 0.98rem;
+        }
+
+        .card .emoji-icon {
+            display: inline-block;
+            font-size: 1.8rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* 强调色链接 */
+        a {
+            color: #c9781c;
+            text-decoration: none;
+            font-weight: 500;
+            border-bottom: 1px dashed transparent;
+            transition: border-color 0.2s, color 0.2s;
+        }
+
+        a:hover {
+            color: #a35f11;
+            border-bottom: 1px dashed #c9781c;
+        }
+
+        .text-block {
+            background: #ffffff;
+            border-radius: 18px;
+            padding: 2rem 2rem 2.2rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+            border: 1px solid #dee6ef;
+            margin: 2rem 0;
+        }
+
+        .text-block p {
+            margin-bottom: 1.2rem;
+        }
+
+        .text-block p:last-child {
+            margin-bottom: 0;
+        }
+
+        .highlight-tip {
+            background: #fcf7ed;
+            border-left: 6px solid #f6b83d;
+            padding: 1.2rem 1.8rem;
+            border-radius: 14px;
+            margin: 1.5rem 0;
+            font-size: 0.95rem;
+        }
+
+        .highlight-tip strong {
+            color: #0b1a2e;
+        }
+
+        .faq-mini {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 2rem 0 1rem;
+        }
+
+        .faq-mini-item {
+            background: white;
+            border-radius: 14px;
+            padding: 1.2rem 1.5rem;
+            border: 1px solid #e1e8f0;
+        }
+
+        .faq-mini-item strong {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: #0b1a2e;
+        }
+
+        .faq-mini-item p {
+            font-size: 0.92rem;
+            color: #3e4f62;
+            margin: 0;
+        }
+
+        .footer-note {
+            text-align: center;
+            margin-top: 2.5rem;
+            padding: 1.2rem 0 0.5rem;
+            border-top: 1px solid #d6dfe9;
+            font-size: 0.85rem;
+            color: #4b5e73;
+        }
+
+        .footer-note a {
+            font-weight: 400;
+        }
+
+        @media (max-width: 700px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .faq-mini {
+                grid-template-columns: 1fr;
+            }
+            .card-grid {
+                gap: 1.2rem;
+            }
+            .container {
+                padding: 1.5rem 1rem 2.5rem;
+            }
+            .text-block {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<!-- 深色头图：简明主视觉 -->
+<section class="hero">
+    <h1>⚽ 足彩竞猜 · 简明指南</h1>
+    <p class="subhead">从规则到判断，找到适合你的参与方式。<br>信息清晰，不绕弯子。</p>
+    <div class="badge-row">
+        <span>📋 基础规则</span>
+        <span>🧩 比赛类型</span>
+        <span>⚖️ 责任提示</span>
+        <span>📊 常见问题</span>
+    </div>
+</section>
+
+<div class="container">
+
+    <!-- 用途卡片：三种常见场景 -->
+    <h2 class="section-title">用途卡片</h2>
+    <div class="card-grid">
+        <div class="card">
+            <div class="emoji-icon">📖</div>
+            <h3>了解规则</h3>
+            <p>胜平负、让球、比分、总进球…… 不同玩法的基本逻辑和赔率结构，适合初次接触时对照阅读。</p>
+        </div>
+        <div class="card">
+            <div class="emoji-icon">🔍</div>
+            <h3>数据参考</h3>
+            <p>联赛走势、主客场表现、近期状态等常见维度，辅助形成自己的判断框架，而不是依赖单一信息。</p>
+        </div>
+        <div class="card">
+            <div class="emoji-icon">🛡️</div>
+            <h3>理性参与</h3>
+            <p>设定预算、控制频率、保持客观。无论经验多少，把竞猜当作娱乐方式之一，比结果更重要。</p>
+        </div>
+    </div>
+
+    <!-- 适合人群 + 自然链接段落 -->
+    <h2 class="section-title">适合哪些人</h2>
+    <div class="text-block">
+        <p>如果你是第一次接触，或者已经关注了一段时间，都可以在这里找到贴合自己的内容。页面围绕「<a href="https://jingcaizucai.com">足彩竞猜</a>」梳理了基础规则、常见问题以及访问时需要注意的细节，不预设知识门槛，也不堆砌术语。</p>
+        <p>对于偶尔参与的球迷，这部分信息可以帮助你更快理解不同玩法的区别；如果只是为了增加看球时的趣味，同样可以只挑选自己感兴趣的部分。无论是哪种情况，都建议先花几分钟了解基本设定，再决定下一步。</p>
+        <p>另外，如果你对某支球队或某个联赛有长期关注，也可以结合实时数据做更细致的分析。保持自己的节奏，比试图捕捉所有信息更有效。</p>
+    </div>
+
+    <!-- 访问提醒 / 提示区块 -->
+    <div class="highlight-tip">
+        <strong>🧭 访问提醒</strong><br>
+        进入页面后，建议先浏览「常见问题」板块，很多基础疑问在那里已有整理。<br>
+        所有链接和信息均来自公开资料，不包含任何形式的预测服务或承诺收益。请根据自身情况合理使用。
+    </div>
+
+    <!-- FAQ 摘要（卡片式） -->
+    <h2 class="section-title">FAQ 摘要</h2>
+    <div class="faq-mini">
+        <div class="faq-mini-item">
+            <strong>需要注册才能查看吗？</strong>
+            <p>大部分基础信息可以直接浏览，无需注册或登录。部分功能或数据可能需要账号，页面会有明确提示。</p>
+        </div>
+        <div class="faq-mini-item">
+            <strong>如何理解让球盘？</strong>
+            <p>让球是为了平衡两队实力差距，在最终比分基础上加上或减去让球数，再判断胜平负。具体例子在规则页有详细说明。</p>
+        </div>
+        <div class="faq-mini-item">
+            <strong>奖金计算是否固定？</strong>
+            <p>不同平台和玩法的计算方式略有差异，通常以出票时的赔率为准。建议在投注前确认所选玩法的具体规则。</p>
+        </div>
+        <div class="faq-mini-item">
+            <strong>有没有针对新手的专区？</strong>
+            <p>网站首页的指南部分会从最基础的术语开始解释，并配有简单案例，适合零基础用户从头了解。</p>
+        </div>
+    </div>
+
+    <!-- 再次自然嵌入链接的段落 -->
+    <div class="text-block" style="margin-top: 0.5rem;">
+        <p>如果你打算进一步浏览具体赛程或深度数据，可以直接访问 <a href="https://jingcaizucai.com">足彩竞猜</a> 站点，在导航栏中按类别查找。所有内容均保持更新，且不包含诱导性表述。</p>
+        <p style="margin-bottom: 0;">保持独立思考，享受比赛本身的乐趣，比任何结果都更重要。</p>
+    </div>
+
+    <!-- 页脚 -->
+    <div class="footer-note">
+        © 简明指南 · 信息整理页面 · 仅供个人参考
+    </div>
+
+</div>
+
+</body>
+</html>
