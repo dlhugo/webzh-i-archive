@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes">
+  <title>竞彩足球 · 简明指南 | page-jingcai.com</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+      background: #f5f9fc;
+      color: #143642;
+      line-height: 1.6;
+      padding: 0 1.25rem 2.5rem;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 840px;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 2rem 2rem 1.5rem 1.5rem;
+      box-shadow: 0 8px 24px rgba(0, 60, 60, 0.06);
+      overflow: hidden;
+      padding: 2rem 1.5rem 2.5rem;
+    }
+
+    /* 开场区域 */
+    .hero {
+      text-align: left;
+      margin-bottom: 2rem;
+      border-left: 6px solid #0f766e;
+      padding-left: 1rem;
+    }
+    .hero .prelude {
+      font-size: 0.85rem;
+      color: #2b6e6b;
+      letter-spacing: 0.5px;
+      background: #ddf2f0;
+      display: inline-block;
+      padding: 0.15rem 1rem 0.15rem 0.9rem;
+      border-radius: 30px;
+      margin-bottom: 0.6rem;
+      font-weight: 500;
+    }
+    .hero h1 {
+      font-size: 2.1rem;
+      font-weight: 600;
+      color: #0d3b3a;
+      line-height: 1.2;
+    }
+    .hero h1 span {
+      background: linear-gradient(120deg, #0f766e 0%, #3b9b95 80%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* 承接段落 */
+    .intro-block {
+      background: #f1faf8;
+      border-radius: 1.5rem;
+      padding: 1.3rem 1.5rem;
+      margin: 1.8rem 0;
+      border: 1px solid #c4e3df;
+      font-size: 1rem;
+    }
+    .intro-block p {
+      margin-bottom: 0.75rem;
+    }
+    .intro-block p:last-child {
+      margin-bottom: 0;
+    }
+    .intro-block a {
+      color: #0c6c63;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      font-weight: 500;
+      transition: background 0.15s;
+    }
+    .intro-block a:hover {
+      background: #c7ece8;
+      text-decoration: none;
+      border-radius: 3px;
+    }
+
+    /* 网格卡片：特点列表 */
+    .feature-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1rem;
+      margin: 2rem 0 1.8rem;
+    }
+    .feature-card {
+      background: #ffffff;
+      border: 1px solid #dbeae8;
+      border-radius: 1.2rem;
+      padding: 1.2rem 0.9rem 1.1rem 1.1rem;
+      box-shadow: 0 2px 6px rgba(18, 87, 83, 0.03);
+      transition: 0.2s ease;
+    }
+    .feature-card:hover {
+      border-color: #74bfb8;
+      box-shadow: 0 5px 12px rgba(13, 94, 88, 0.06);
+    }
+    .feature-card h3 {
+      font-size: 1.05rem;
+      color: #165c56;
+      margin-bottom: 0.25rem;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .feature-card h3::before {
+      content: "";
+      display: inline-block;
+      width: 0.65rem;
+      height: 0.65rem;
+      background: #27a69a;
+      border-radius: 2px 8px 2px 8px;
+      margin-right: 0.25rem;
+    }
+    .feature-card p {
+      font-size: 0.92rem;
+      color: #2b4d4a;
+      margin-top: 0.15rem;
+    }
+
+    /* 场景与提示 */
+    .scene-note {
+      background: #edf6f4;
+      border-radius: 1.5rem;
+      padding: 1.4rem 1.5rem;
+      margin: 1.8rem 0;
+    }
+    .scene-note h2 {
+      font-size: 1.2rem;
+      font-weight: 550;
+      color: #0a5c55;
+      margin-bottom: 0.75rem;
+      border-bottom: 2px solid #a7d3cd;
+      padding-bottom: 0.3rem;
+      display: inline-block;
+    }
+    .scene-note ul {
+      list-style: none;
+      padding-left: 0;
+    }
+    .scene-note li {
+      position: relative;
+      padding-left: 1.8rem;
+      margin-bottom: 0.55rem;
+      font-size: 0.95rem;
+      color: #1b4945;
+    }
+    .scene-note li::before {
+      content: "▹";
+      position: absolute;
+      left: 0.1rem;
+      color: #1b887d;
+      font-weight: bold;
+    }
+
+    /* FAQ 摘要（极简） */
+    .faq-mini {
+      background: #ffffff;
+      border: 1px solid #cee4e0;
+      border-radius: 1.4rem;
+      padding: 1.2rem 1.4rem;
+      margin: 2rem 0 1.4rem;
+    }
+    .faq-mini details {
+      margin-bottom: 0.6rem;
+    }
+    .faq-mini details:last-child {
+      margin-bottom: 0;
+    }
+    .faq-mini summary {
+      font-weight: 540;
+      color: #10554f;
+      cursor: pointer;
+      padding: 0.2rem 0;
+      font-size: 0.98rem;
+      list-style: disclosure-closed inside;
+    }
+    .faq-mini summary::-webkit-details-marker {
+      color: #188079;
+    }
+    .faq-mini details[open] summary {
+      list-style-type: disclosure-open;
+    }
+    .faq-mini details p {
+      margin-top: 0.3rem;
+      margin-left: 0.25rem;
+      padding-left: 1rem;
+      border-left: 3px solid #b0d3ce;
+      color: #224f49;
+      font-size: 0.92rem;
+    }
+
+    /* 温和结尾 */
+    .gentle-footer {
+      margin-top: 2.2rem;
+      padding-top: 1.2rem;
+      border-top: 1px solid #c6dbd7;
+      text-align: left;
+      font-size: 0.95rem;
+      color: #2d5b56;
+    }
+    .gentle-footer p {
+      max-width: 75%;
+    }
+    .gentle-footer a {
+      color: #0b6b62;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+    .gentle-footer a:hover {
+      background: #c4e7e1;
+      border-radius: 2px;
+    }
+
+    /* 响应式 */
+    @media (max-width: 580px) {
+      body { padding: 0 0.75rem 2rem; }
+      .container { padding: 1.5rem 1rem 2rem; border-radius: 1.5rem; }
+      .hero h1 { font-size: 1.8rem; }
+      .feature-grid { grid-template-columns: 1fr; gap: 0.9rem; }
+      .intro-block, .scene-note, .faq-mini { padding: 1rem; }
+      .gentle-footer p { max-width: 100%; }
+    }
+
+    /* 微妙点缀 */
+    .dot-divider {
+      width: 50px;
+      height: 3px;
+      background: #b2d3cf;
+      margin: 0.6rem 0 0.2rem;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+
+  <!-- 开场短句 -->
+  <div class="hero">
+    <div class="prelude">⚽ 简明 · 足球分析</div>
+    <h1><span>竞彩足球</span><br>从一场比赛开始了解</h1>
+  </div>
+
+  <!-- 承接段落：简短指南 + 访问提醒 -->
+  <div class="intro-block">
+    <p>无论你是刚开始接触足球数据，还是想系统梳理判断逻辑，<a href="https://page-jingcai.com">竞彩足球</a>都提供了一种轻量的信息结构。这里没有冗余的干扰，只有赛前对阵、近期状态、历史同赔等基础框架。</p>
+    <p><strong>提醒：</strong>所有数据仅供个人参考，比赛结果受多种因素影响，保持理性判断永远是第一位的。建议每次浏览时核对官方数据源，避免信息滞后。</p>
+  </div>
+
+  <!-- 特点列表：网格卡片 -->
+  <div class="feature-grid">
+    <div class="feature-card">
+      <h3>赛前速览</h3>
+      <p>主客队近五场战绩、进球分布、平均赔率变化，一页之内可横向比较。</p>
+    </div>
+    <div class="feature-card">
+      <h3>历史同赔</h3>
+      <p>相同初始组合下的历史赛果统计，辅助理解数据倾向，而非直接预判。</p>
+    </div>
+    <div class="feature-card">
+      <h3>离散与分歧</h3>
+      <p>多家机构赔率离散值，反映市场观点统一或分歧的程度，可作为参考维度。</p>
+    </div>
+    <div class="feature-card">
+      <h3>完整对阵</h3>
+      <p>每日竞彩场次全覆盖，标注让球、进球数、半全场等玩法基础数据。</p>
+    </div>
+  </div>
+
+  <!-- 场景 + 温和提醒 -->
+  <div class="scene-note">
+    <h2>使用场景</h2>
+    <ul>
+      <li>赛前 1-2 小时浏览最新赔率与球队新闻，结合页面数据做笔记。</li>
+      <li>对比不同联赛的模型差异，留意小联赛数据样本量可能不足。</li>
+      <li>设置单日查看上限，避免长时间沉浸在数据中，保持旁观视角。</li>
+    </ul>
+  </div>
+
+  <!-- FAQ 摘要：一两个实用问题 -->
+  <div class="faq-mini">
+    <details>
+      <summary>页面数据更新频率如何？</summary>
+      <p>通常与主要数据源同步，每 5–15 分钟刷新一次。重要比赛日前建议提前截图，防止临场数据波动。</p>
+    </details>
+    <details>
+      <summary>为什么需要关注「离散值」？</summary>
+      <p>离散值低表示主流机构看法相对集中，离散值高说明存在明显分歧。可当作观察比赛不确定性的一个切口。</p>
+    </details>
+    <div class="dot-divider"></div>
+  </div>
+
+  <!-- 温和结尾 + 链接自然植入 -->
+  <div class="gentle-footer">
+    <p>如果你倾向于一个整洁、克制的信息入口，可以随时打开 <a href="https://page-jingcai.com">竞彩足球</a>，从今天的比赛列表开始浏览。保持节奏，比追逐更多数据更重要。</p>
+  </div>
+
+</div>
+</body>
+</html>
